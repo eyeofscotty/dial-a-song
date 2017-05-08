@@ -1,3 +1,5 @@
+package data;
+
 import javafx.application.Application;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -15,7 +17,7 @@ import java.net.URL;
 /**
  * Created by Scott on 5/4/2017.
  */
-public class Song extends Application{
+public class Song {
     private int id;
     private String name;
     private String artist;
@@ -62,9 +64,4 @@ public class Song extends Application{
         this.length = length;
     }
 
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-
-    }
 }
