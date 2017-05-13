@@ -1,4 +1,4 @@
-package impl;
+package data.impl;
 
 import data.Song;
 import data.SongDAO;
@@ -28,7 +28,7 @@ public class SongDAOImpl implements SongDAO {
     public List<Song> getAllSongs() {
         return songs;
     }
-    
+
 
     @Override
     public Song getSong(int rollNo) {

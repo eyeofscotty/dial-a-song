@@ -1,3 +1,8 @@
+import controller.controller.LocateAudioStream;
+import controller.controller.PlayController;
+import controller.impl.LocateAudioStreamImpl;
+import controller.impl.PlayControllerImpl;
+import data.Song;
 import javafx.application.Application;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -28,8 +33,13 @@ public class main {
 
 
     public static void main(String args[]) throws LineUnavailableException, IOException, UnsupportedAudioFileException, InterruptedException {
-        InputStream inputStream = new FileInputStream("D:\\Songs\\Noodles.wav");
-        AudioStream audioStream = new AudioStream(inputStream);
-        AudioPlayer.player.start(audioStream);
+//        InputStream inputStream = new FileInputStream("D:\\Songs\\Titanium.wav");
+//        AudioStream audioStream = new AudioStream(inputStream);
+//        AudioPlayer.player.start(audioStream);
+
+        LocateAudioStream las = new LocateAudioStreamImpl();
+        PlayController pc = new PlayControllerImpl();
+        Run run = new Run();
+        run.run();
     }
 }
