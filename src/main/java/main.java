@@ -37,9 +37,8 @@ public class main {
 //        AudioStream audioStream = new AudioStream(inputStream);
 //        AudioPlayer.player.start(audioStream);
 
-        LocateAudioStream las = new LocateAudioStreamImpl();
-        PlayController pc = new PlayControllerImpl();
         Run run = new Run();
         run.run();
+
     }
 }

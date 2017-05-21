@@ -13,11 +13,11 @@ public class testRun {
     Song song1 = new Song(12345, "Noodles", "Don't matter", "Noodles and CO", "11:33");
 
     public testRun(){
-        try {
-            las.getAudioStream(song1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            las.getAudioStream(song1);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
 

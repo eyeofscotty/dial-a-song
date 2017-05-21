@@ -1,10 +1,14 @@
 import controller.controller.LocateAudioStream;
+import controller.controller.LogicPlayer;
 import controller.controller.PlayController;
 import controller.impl.LocateAudioStreamImpl;
+import controller.impl.LogicPlayerImpl;
 import controller.impl.PlayControllerImpl;
 import data.Song;
 import sun.audio.AudioStream;
 
+import javax.sound.sampled.*;
+import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -13,29 +17,14 @@ import java.util.Scanner;
  */
 public class Run {
     Scanner sc = new Scanner(System.in);
-    String nextLine = "";
-    LocateAudioStream las = new LocateAudioStreamImpl();
-    PlayController pc = new PlayControllerImpl();
-    AudioStream audioStream;
+    LogicPlayer lp = new LogicPlayerImpl();
 
-
-    public void run(){
-
-        while(!nextLine.equals("quit")) {
+    public void run() throws IOException, InterruptedException, LineUnavailableException, UnsupportedAudioFileException {
+        String nextLine;
+        while (true) {
             nextLine = sc.nextLine();
-            if(nextLine.equals("stop")){
-                pc.stopSong(audioStream);
-            }
-
-            else{
-                Song song1 = new Song(12345, nextLine, "", "Noodles and CO", "11:33");
-                try {
-                    audioStream = las.getAudioStream(song1);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                pc.playSong(audioStream);
-            }
+            System.out.println(nextLine);
+            lp.startPlaying(nextLine);
         }
     }
 }
