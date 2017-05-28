@@ -1,9 +1,11 @@
 package controller.impl;
 
-import controller.controller.LocateAudioStream;
-import controller.controller.LogicPlayer;
-import controller.controller.PlayController;
+import controller.LocateAudioStream;
+import controller.LogicPlayer;
+import controller.PlayController;
 import data.Song;
+import data.SongDAO;
+import data.impl.SongDAOImpl;
 
 import javax.sound.sampled.Clip;
 import java.io.IOException;
@@ -15,14 +17,33 @@ public class LogicPlayerImpl implements LogicPlayer {
 
     LocateAudioStream las = new LocateAudioStreamImpl();
     PlayController pc = new PlayControllerImpl();
+    SongDAO songDAO = new SongDAOImpl();
+    String idBuilder = "";
 
-    public void startPlaying(String input) throws IOException {
+    private void startPlaying(Song song) {
         Clip clip = pc.getClip();
-        if (input.equals("stop")) {
-            pc.stopSong();
-        } else if (clip == null || !(clip.getMicrosecondPosition() < clip.getMicrosecondLength())) {
-            Song song1 = new Song(12345, input, "", "Noodles and CO", "11:33");
-            pc.playSong(las.getAudioStream(song1));
+        if (clip == null || !(clip.getMicrosecondPosition() < clip.getMicrosecondLength())) {
+            pc.playSong(las.getAudioStream(song));
+        }
+    }
+
+    private void stopPlaying(){
+        pc.stopSong();
+    }
+
+    public void parseInput(String input) throws IOException {
+        idBuilder += input;
+        System.out.println(idBuilder);
+        if (input.equals("#")) {
+            stopPlaying();
+            idBuilder = "";
+        }
+
+        if(idBuilder.length() >= 5){
+            Song song = songDAO.getSong(Integer.parseInt(idBuilder));
+            startPlaying(song);
+            idBuilder = "";
+
         }
     }
 

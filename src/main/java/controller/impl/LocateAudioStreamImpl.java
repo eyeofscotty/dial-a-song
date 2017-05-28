@@ -1,6 +1,6 @@
 package controller.impl;
 
-import controller.controller.LocateAudioStream;
+import controller.LocateAudioStream;
 import data.Song;
 
 import javax.sound.sampled.AudioInputStream;
@@ -12,7 +12,7 @@ import java.io.*;
  */
 public class LocateAudioStreamImpl implements LocateAudioStream {
 
-    static final String DEFAULT_PATH = "D:/Songs";
+    static final String DEFAULT_PATH = "D:/Songs/";
 
     public AudioInputStream getAudioStream(Song song) {
         AudioInputStream ais = null;
@@ -25,7 +25,7 @@ public class LocateAudioStreamImpl implements LocateAudioStream {
     }
 
     private String constructPath(Song song){
-        return DEFAULT_PATH + addToPath(song.getName() + ".wav");
+        return DEFAULT_PATH + song.getArtist() + addToPath(song.getName() + ".wav");
     }
 
     private String addToPath(String pathAdd){

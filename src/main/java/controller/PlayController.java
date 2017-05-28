@@ -1,4 +1,4 @@
-package controller.controller;
+package controller;
 
 import sun.audio.AudioStream;
 

@@ -1,4 +1,4 @@
-package controller.controller;
+package controller;
 
 import java.io.IOException;
 
@@ -7,5 +7,5 @@ import java.io.IOException;
  */
 public interface LogicPlayer {
 
-    void startPlaying(String input) throws IOException;
+    void parseInput(String input) throws IOException;
 }

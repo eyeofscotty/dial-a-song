@@ -1,4 +1,4 @@
-package controller.controller;
+package controller;
 
 import data.Song;
 import javax.sound.sampled.AudioInputStream;

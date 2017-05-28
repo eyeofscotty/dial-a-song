@@ -22,16 +22,18 @@ public class Song {
     private String name;
     private String artist;
     private String album;
-    private String length;
 
     public Song(){}
 
-    public Song(int id, String name, String artist, String album, String length) {
+    public Song(int id, String name, String artist) {
         this.id = id;
         this.name = name;
         this.artist = artist;
-        this.album = album;
-        this.length = length;
+    }
+
+    public Song(String name, String artist){
+        this.name = name;
+        this.artist = artist;
     }
 
     public int getId() {
@@ -58,20 +60,13 @@ public class Song {
         this.artist = artist;
     }
 
-    public String getAlbum() {
-        return album;
-    }
 
-    public void setAlbum(String album) {
-        this.album = album;
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", artist='" + artist + '\'' +
+                '}';
     }
-
-    public String getLength() {
-        return length;
-    }
-
-    public void setLength(String length) {
-        this.length = length;
-    }
-
 }

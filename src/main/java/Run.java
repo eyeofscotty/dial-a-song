@@ -1,14 +1,6 @@
-import controller.controller.LocateAudioStream;
-import controller.controller.LogicPlayer;
-import controller.controller.PlayController;
-import controller.impl.LocateAudioStreamImpl;
+import controller.LogicPlayer;
 import controller.impl.LogicPlayerImpl;
-import controller.impl.PlayControllerImpl;
-import data.Song;
-import sun.audio.AudioStream;
-
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -20,11 +12,10 @@ public class Run {
     LogicPlayer lp = new LogicPlayerImpl();
 
     public void run() throws IOException, InterruptedException, LineUnavailableException, UnsupportedAudioFileException {
-        String nextLine;
+        String nextLine = "";
         while (true) {
             nextLine = sc.nextLine();
-            System.out.println(nextLine);
-            lp.startPlaying(nextLine);
+            lp.parseInput(nextLine);
         }
     }
 }

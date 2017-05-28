@@ -1,13 +1,8 @@
 package controller.impl;
 
-import controller.controller.PlayController;
-import data.Song;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
+import controller.PlayController;
 
 import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
 
 /**
  * Created by Scott on 5/12/2017.
